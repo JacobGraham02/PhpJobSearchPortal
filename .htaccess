@@ -1,0 +1,34 @@
+# mod_rewrite refers to a module for the Apache web server which rewrites or redirects requests to specific content
+# Essentially, the module transforms incoming requests to a path in the web server's file system. This makes it possible to rewrite a URL.
+# The <IfModule mod_rewrite.c>...</IfModule> block ensures everything contained within that block is taken into account only if the mod_rewrite module is loaded
+
+# RewriteRule Pattern Substitution [flags]
+# RewriteCond TestString CondPattern [flags]
+
+# The module mod_rewrite allows you to rewrite the URLs of incoming HTTP requests that come into your server and is based on a regex parser.
+# The rule { RewriteEngine On } enables the mod_rewrite to modify the URLs of incoming HTTP requests for redirection to another URL.
+#<IfModule mod_rewrite.c>
+RewriteEngine On
+#
+## If a file with the specific name in the browser does not exist, or the directory in the browser does not exist, continue to rewrite rule below.
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+RewriteRule ^(.*)$ public/index.php/$1
+#
+## RewriteBase for setting a common URL for each file redirect
+#
+## Stop processing the incoming HTTP request if the URL of that request is in the { public } directory. The below L flag means that if this rule matches,
+## then no other matching rule will be performed for this page.
+#RewriteRule ^public/ - [L]
+#
+## Use static resources for the redirected page if they exist. RewriteCond essentially means "execute the next RewriteRule only if this is true".
+#RewriteCond %{DOCUMENT_ROOT}/public/$1 -f
+#RewriteRule (.+) public/$1 [L]
+#
+## Route all other requests to the specified page
+# RewriteRule ^(.*)$ public/index.php/$1 [QSA] # QSA means if there is a query string passed with the original URL, it will be appended to the rewrite URL.
+## If the HTTP request URL matches the regex pattern ^(.+)$, append the first parameter of the URL onto the URL itself.
+## For example, if the first parameter was olle, then the URL will be rewritten as index.php?url=olle
+#</IfModule>
+

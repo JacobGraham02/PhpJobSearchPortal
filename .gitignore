@@ -1,0 +1,12 @@
+UsingDocker.txt
+UsingPhpUnitAndComposer.txt
+.phpunit.result.cache
+composer.phar
+composer.lock
+vendor/
+.env
+sql_table_structure.sql
+config/
+.idea
+config/.database.ini
+src/DigiCertGlobalRootCA.crt.pem
