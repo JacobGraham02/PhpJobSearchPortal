@@ -1,13 +1,13 @@
 <?php
 
 namespace Jakeg\PhpJobSearchPortal\Controller;
-use Jakeg\PhpJobSearchPortal\Model\ValidatePostRequest;
+use Jakeg\PhpJobSearchPortal\Model\ValidateRegisterPostRequest;
 use Jakeg\PhpJobSearchPortal\Model\ValidateGetRequest;
 
 class HomeController {
 
     private const VALID_REQUEST_TYPES = array(
-        'POST' => 'src/Model/ValidatePostRequest.php',
+        'POST' => 'src/Model/ValidateRegisterPostRequest.php',
         'GET' => 'src/Model/ValidateGetRequest.php'
     );
 
@@ -16,7 +16,7 @@ class HomeController {
         if (!isset(self::VALID_REQUEST_TYPES[$HTTP_REQUEST_METHOD])) {
             response()->redirect("public/home.php");
         }
-        if ($HTTP_REQUEST_METHOD === 'POST' && new ValidatePostRequest($_REQUEST)) {
+        if ($HTTP_REQUEST_METHOD === 'POST' && new ValidateRegisterPostRequest($_REQUEST)) {
             echo 'post request';
         }
         if ($HTTP_REQUEST_METHOD === 'GET' && new ValidateGetRequest($_REQUEST)) {
