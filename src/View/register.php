@@ -7,7 +7,7 @@ include './common/header.php';
 
 <main id="website_body_main">
 
-    <form method="post" action="../../form_request">
+    <form method="post" action="../../form_post_request">
         <fieldset id="fieldset_for_username">
             <label for="username" class="label_for_register_username"></label>
             <input class="input_for_register_username" name="username" id="username" required type="text"/>

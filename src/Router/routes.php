@@ -15,7 +15,7 @@ Router::basic('/companies/{id?}', 'HomeController@companies')->setName('companie
 
 Router::get('/login', 'HomeController@login')->setName('login');
 
-Router::form('/form_request', 'HomeController@form_request')->setName('form_request');
+Router::form('/form_post_request', 'HomeController@form_request')->setName('form_post_request');
 
 //Router::error(function(Request $request, \Exception $exception) {
 //    switch ($exception->getCode()) {

@@ -11,7 +11,7 @@ class HomeController {
         'GET' => 'src/Model/ValidateGetRequest.php'
     );
 
-    public function form_request() {
+    public function form_post_request() {
         $HTTP_REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
         if (!isset(self::VALID_REQUEST_TYPES[$HTTP_REQUEST_METHOD])) {
             response()->redirect("public/home.php");
