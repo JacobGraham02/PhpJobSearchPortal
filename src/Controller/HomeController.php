@@ -1,10 +1,17 @@
 <?php
 
 namespace Jakeg\PhpJobSearchPortal\Controller;
+use Jakeg\PhpJobSearchPortal\Model\DatabaseActions;
 use Jakeg\PhpJobSearchPortal\Model\ValidateRegisterPostRequest;
 use Jakeg\PhpJobSearchPortal\Model\ValidateGetRequest;
 
 class HomeController {
+
+    private $database_actions;
+
+    public function __construct() {
+        $this->database_actions = new DatabaseActions();
+    }
 
     private const VALID_REQUEST_TYPES = array(
         'POST' => 'src/Model/ValidateRegisterPostRequest.php',
