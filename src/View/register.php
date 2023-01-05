@@ -8,18 +8,21 @@ include './common/header.php';
 <main id="website_body_main">
 
     <form method="post" action="../../form_post_request">
+        <h3>Username:</h3>
         <fieldset id="fieldset_for_username">
             <label for="username" class="label_for_register_username"></label>
             <input class="input_for_register_username" name="username" id="username" required type="text"/>
             <span id="span_for_username_messages"></span>
         </fieldset>
 
+        <h3>Email:</h3>
         <fieldset id="fieldset_for_email">
             <label for="email" class="label_for_register_email"></label>
             <input class="input_for_register_email" name="email" id="email" required type="text"/>
             <span id="span_for_email_messages"></span>
         </fieldset>
 
+        <h3>Password:</h3>
         <fieldset id="fieldset_for_password">
             <label for="password" class="label_for_register_password"></label>
             <input class="input_for_register_password" name="password" id="password" required type="password"
@@ -27,6 +30,7 @@ include './common/header.php';
             <span id="span_for_password_messages"></span>
         </fieldset>
 
+        <h3>Confirm password:</h3>
         <fieldset id="fieldset_for_confirm_password">
             <label for="confirm_password" class="label_for_register_confirm_password"></label>
             <input class="input_for_register_confirm_password" name="confirm_password" id="confirm_password" required type="password"
